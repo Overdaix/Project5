@@ -7,8 +7,8 @@ from scrapy.selector import HtmlXPathSelector
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
 import logging
-class MetacriticSpider(CrawlSpider):
-    name = "metacritic" # Name of the spider, to be used when crawling
+class TweakersSpider(CrawlSpider):
+    name = "tweakers" # Name of the spider, to be used when crawling
     allowed_domains = ["tweakers.net"] # Where the spider is allowed to go
     DOWNLOAD_DELAY = 3.0
     start_urls = [
