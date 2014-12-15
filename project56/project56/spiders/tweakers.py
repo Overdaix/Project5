@@ -13,12 +13,12 @@ class TweakersSpider(CrawlSpider):
     DOWNLOAD_DELAY = 2.0
     start_urls = [
         'http://tweakers.net/categorie/545/geheugen-intern/producten/',
-        'http://tweakers.net/categorie/49/videokaarten/producten/',
-        'http://tweakers.net/categorie/47/moederborden/producten/',
-        'http://tweakers.net/categorie/61/behuizingen/producten/',
-        'http://tweakers.net/categorie/46/processors/producten/',
-        'http://tweakers.net/categorie/664/voedingen/producten/',
-        'http://tweakers.net/categorie/488/processorkoeling/producten/',
+      #  'http://tweakers.net/categorie/49/videokaarten/producten/',
+     #   'http://tweakers.net/categorie/47/moederborden/producten/',
+     #   'http://tweakers.net/categorie/61/behuizingen/producten/',
+   #     'http://tweakers.net/categorie/46/processors/producten/',
+    #    'http://tweakers.net/categorie/664/voedingen/producten/',
+ #       'http://tweakers.net/categorie/488/processorkoeling/producten/',
 
 
         ]
@@ -39,17 +39,21 @@ class TweakersSpider(CrawlSpider):
 
         items = []
         sel = Selector(response)
-        print("FUCKING TERING ZOOI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         products = sel.xpath('//div[@id="tab:specificaties"]')
         category = sel.xpath('//li[@id="tweakbaseBreadcrumbCategory"]/a/text()').extract()
         print(category)
         for product in products:
             if 'Geheugen intern' in category:
                 item = Memory()
+                data = product.xpath('//tr[]')
                 item['Category'] = category
+                print product.xpath('//tr[contains(td[1], "Merk")]/td[2]/a/text()').extract()
+                print ("test1")
+                print product.xpath('.//tr[contains(td[1], "Merk")]/td[2]/a/text()').extract()
+                print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 item['Name'] = ''.join(product.xpath('//tr[contains(td[1], "Uitvoering")]/td[2]/a/text()').extract())
-                item['Brand'] = ''.join(product.xpath('//tr[contains(td[1], "Merk")]/td[2]/a/text()').extract())
-                item['Quantity'] = ''.join(product.xpath('//tr[contains(td[1], "Aantal")]/td[2]/text()').extract())
+                item['Brand'] = ''.join(product.xpath('.//tr[contains(td[1], "Merk")]/td[2]/a/text()').extract())
+                item['Quantity'] = ''.join(product.xpath('//div[@id="tab:specificaties"]/table/tbody/tr[13]/td[2]/text()').extract())
                 item['Size'] = ''.join(product.xpath('//tr[contains(td[1], "Modulegrootte")]/td[2]/text()').extract())
                 item['PriceGB'] = ''.join(product.xpath('//tr[contains(td[1], "Prijs per GB (geheugen)")]/td[2]/text()').extract())
                 item['Type'] = ''.join(product.xpath('//tr[contains(td[1], "Geheugentype")]/td[2]/text()').extract())
