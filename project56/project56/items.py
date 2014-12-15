@@ -121,6 +121,7 @@ class Power(Item):
     Bay = Field() #Information about compatible bay (example: 1x intern - 2.5")
     ServiceInfo = Field() #Information about service and support.
     Warranty = Field () #Information about waranty period.
+    Picture = Field()
     #spec for power
     Power = Field()
     Capacity = Field()
