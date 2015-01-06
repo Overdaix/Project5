@@ -13,5 +13,10 @@ BOT_NAME = 'project56'
 SPIDER_MODULES = ['project56.spiders']
 NEWSPIDER_MODULE = 'project56.spiders'
 
+ITEM_PIPELINES = ['project56.pipelines.MongoDBPipeline']
+MONGODB_HOST = 'ds057000.mongolab.com'
+MONGODB_PORT = 57000
+MONGODB_DATABASE = 'db_pcmaster'
+MONGODB_COLLECTION = 'c_part'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'project56 (+http://www.yourdomain.com)'

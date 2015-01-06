@@ -4,20 +4,20 @@ class Memory(Item):
     Class for the item retrieved by scrapy.
     '''
     # Here are the fields that will be crawled and stored
-    Category = Field()
-    Name = Field() # Game title
-    Brand = Field()
+    _category_id = Field()
+    _name = Field() # Game title
+    _brand = Field()
     Url = Field()  # Link to product page.
     Price = Field() #Product price.
     Date = Field()  # Release date
-    Name = Field() # Name of the product.
+    _name = Field() # _name of the product.
     Sku = Field()# Stock keeping unit.
     Ean = Field()# European article number.
     Description= Field() #General info about product.
     Model = Field()   #Model information.
     Type = Field() #Intern/Extern.
     Location = Field() #Inter/Extern.
-    Software = Field() #Info about software provided.
+    Software = Field()
     Bay = Field() #Information about compatible bay (example: 1x intern - 2.5")
     ServiceInfo = Field() #Information about service and support.
     Warranty = Field () #Information about waranty period.
@@ -34,13 +34,13 @@ class Memory(Item):
     Picture = Field()
 
 class Motherboard(Item):
-    Category = Field()
-    Name = Field() # Game title
-    Brand = Field()
+    _category_id = Field(serializer=int)
+    _name = Field() # Game title
+    _brand = Field()
     Url = Field()  # Link to product page.
     Price = Field() #Product price.
     Date = Field()  # Release date
-    Name = Field() # Name of the product.
+    _name = Field() # _name of the product.
     Sku = Field()# Stock keeping unit.
     Ean = Field()# European article number.
     Description= Field() #General info about product.
@@ -74,13 +74,13 @@ class Motherboard(Item):
     Picture = Field()
 
 class Processor(Item):
-    Category = Field()
-    Name = Field() # Game title
-    Brand = Field()
+    _category_id = Field()
+    _name = Field() # Game title
+    _brand = Field()
     Url = Field()  # Link to product page.
     Price = Field() #Product price.
     Date = Field()  # Release date
-    Name = Field() # Name of the product.
+    _name = Field() # _name of the product.
     Sku = Field()# Stock keeping unit.
     Ean = Field()# European article number.
     Description= Field() #General info about product.
@@ -104,13 +104,13 @@ class Processor(Item):
     Picture = Field()
 
 class Power(Item):
-    Category = Field()
-    Name = Field() # Game title
-    Brand = Field()
+    _category_id = Field()
+    _name = Field() # Game title
+    _brand = Field()
     Url = Field()  # Link to product page.
     Price = Field() #Product price.
     Date = Field()  # Release date
-    Name = Field() # Name of the product.
+    _name = Field() # _name of the product.
     Sku = Field()# Stock keeping unit.
     Ean = Field()# European article number.
     Description= Field() #General info about product.
@@ -137,13 +137,13 @@ class Power(Item):
     Depth = Field()
 
 class Cooler(Item):
-    Category = Field()
-    Name = Field() # Game title
-    Brand = Field()
+    _category_id = Field()
+    _name = Field() # Game title
+    _brand = Field()
     Url = Field()  # Link to product page.
     Price = Field() #Product price.
     Date = Field()  # Release date
-    Name = Field() # Name of the product.
+    _name = Field() # _name of the product.
     Sku = Field()# Stock keeping unit.
     Ean = Field()# European article number.
     Description= Field() #General info about product.
@@ -166,13 +166,13 @@ class Cooler(Item):
     Picture = Field()
 
 class GraphicsCard(Item):
-    Category = Field()
-    Name = Field() # Game title
-    Brand = Field()
+    _category_id = Field()
+    _name = Field() # Game title
+    _brand = Field()
     Url = Field()  # Link to product page.
     Price = Field() #Product price.
     Date = Field()  # Release date
-    Name = Field() # Name of the product.
+    _name = Field() # _name of the product.
     Sku = Field()# Stock keeping unit.
     Ean = Field()# European article number.
     Description= Field() #General info about product.
@@ -211,13 +211,13 @@ class GraphicsCard(Item):
     Picture = Field()
 
 class Case(Item):
-    Category = Field()
-    Name = Field() # Game title
-    Brand = Field()
+    _category_id = Field()
+    _name = Field() # Game title
+    _brand = Field()
     Url = Field()  # Link to product page.
     Price = Field() #Product price.
     Date = Field()  # Release date
-    Name = Field() # Name of the product.
+    _name = Field() # _name of the product.
     Sku = Field()# Stock keeping unit.
     Ean = Field()# European article number.
     Description= Field() #General info about product.
@@ -243,3 +243,8 @@ class Case(Item):
     Volume = Field()
     Weight = Field()
     Picture = Field()
+class Product(Item):
+    Website = Field()
+    Price = Field()
+    Sku = Field()
+    Url = Field()
